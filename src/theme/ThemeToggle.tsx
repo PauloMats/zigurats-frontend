@@ -1,26 +1,22 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import { useTheme } from "next-themes";
-import IconButton from "@mui/material/IconButton";
 import Tooltip from "@mui/material/Tooltip";
-import DarkModeIcon from "@mui/icons-material/DarkMode";
-import LightModeIcon from "@mui/icons-material/LightMode";
+import IconButton from "@mui/material/IconButton";
+import LightModeRoundedIcon from "@mui/icons-material/LightModeRounded";
+import DarkModeRoundedIcon from "@mui/icons-material/DarkModeRounded";
+import { useColorScheme } from "@mui/material/styles";
 
 export default function ThemeToggle() {
-  const { resolvedTheme, setTheme } = useTheme();
-  const [mounted, setMounted] = useState(false);
+  const { mode, setMode } = useColorScheme();
 
-  useEffect(() => setMounted(true), []);
+  if (!mode) return null; // :contentReference[oaicite:4]{index=4}
 
-  if (!mounted) return null;
-
-  const isDark = resolvedTheme === "dark";
+  const next = mode === "dark" ? "light" : "dark";
 
   return (
-    <Tooltip title={isDark ? "Trocar para claro" : "Trocar para escuro"}>
-      <IconButton onClick={() => setTheme(isDark ? "light" : "dark")} aria-label="Alternar tema">
-        {isDark ? <LightModeIcon /> : <DarkModeIcon />}
+    <Tooltip title={`Trocar para ${next}`}>
+      <IconButton aria-label="Alternar tema" onClick={() => setMode(next)}>
+        {mode === "dark" ? <LightModeRoundedIcon /> : <DarkModeRoundedIcon />}
       </IconButton>
     </Tooltip>
   );
