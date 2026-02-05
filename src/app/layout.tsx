@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Roboto } from "next/font/google";
-import { AppRouterCacheProvider } from "@mui/material-nextjs/v15-appRouter";
+import { AppRouterCacheProvider } from "@mui/material-nextjs/v16-appRouter";
 import { Providers } from "./providers";
 import "./globals.css";
 
@@ -18,8 +18,8 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="pt-BR" className={roboto.variable} suppressHydrationWarning>
-      <body className="min-h-screen bg-zig-bg text-zig-text">
+    <html lang="pt-BR" suppressHydrationWarning>
+      <body className={roboto.variable}>
         <AppRouterCacheProvider options={{ enableCssLayer: true }}>
           <Providers>{children}</Providers>
         </AppRouterCacheProvider>

@@ -1,3 +1,5 @@
+"use client"; 
+
 import { Card, CardContent, Typography, Button } from "@mui/material";
 import ThemeToggle from "@/theme/ThemeToggle";
 
@@ -10,7 +12,7 @@ export default function HomePage() {
             CONDOMINIOS ZIGURATS
           </h1>
           <p className="mt-1 text-sm text-zig-muted">
-            Starter cru: Next + TS + Tailwind v4 + MUI + styled-components.
+            Starter cru: Next + TS + Tailwind v4 + MUI + styled-components* (*caso seja necessário criar um componente com estilização diferente).
           </p>
         </div>
 
