@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Roboto } from "next/font/google";
-import { AppRouterCacheProvider } from "@mui/material-nextjs/v16-appRouter";
 import { Providers } from "./providers";
+import ThemeRegistry from "./ThemeRegistry";
 import "./globals.css";
 
 const roboto = Roboto({
@@ -19,10 +19,13 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="pt-BR" suppressHydrationWarning>
+      <head>
+        <meta name="emotion-insertion-point" content="" />
+      </head>
       <body className={roboto.variable}>
-        <AppRouterCacheProvider options={{ enableCssLayer: true }}>
+        <ThemeRegistry>
           <Providers>{children}</Providers>
-        </AppRouterCacheProvider>
+        </ThemeRegistry>
       </body>
     </html>
   );
