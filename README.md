@@ -26,19 +26,20 @@ Interface frontend para o **Dourado**, uma aplicação digital voltada para solu
 
 ## Rodando local
 
-- Clone o repositório com o `git clone`
-após:
+- Clone o repositório com:
+
 ```bash
-npm install
-npm run dev
+git clone git@github.com:PauloMats/zigurats-frontend.git
 ```
 
 ## Scripts
-
-`npm run dev` — ambiente local 
-`npm run build` — build de produção 
-`npm run start` — roda build de produção localmente
-`npm run lint` — ESLint 
+```bash
+npm install -- instala dependências
+npm run dev -- inicia o servidor de desenvolvimento
+npm run build -- build de produção 
+npm run start -- roda build de produção localmente
+npm run lint -- ESLint 
+```
 
 ## Estruturação de pastas (sugestão)
 
