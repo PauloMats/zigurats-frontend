@@ -1,26 +1,54 @@
+/* Order: garante previsibilidade quando MUI + Tailwind coexistem */
+@layer theme, base, mui, components, utilities;
+
 @import "tailwindcss";
 
+/* =========================
+   Design Tokens (Zigurats)
+   ========================= */
+
+/* Light */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  color-scheme: light;
+
+  --zig-bg: #f5f7fb;        /* fundo claro */
+  --zig-surface: #eaf0fa;   /* superfície */
+  --zig-card: #ffffff;      /* cards */
+  --zig-text: #0b1220;      /* texto principal */
+  --zig-muted: #475569;     /* texto secundário */
+  --zig-border: #cbd5e1;    /* bordas */
+
+  --zig-gold: #d4af37;      /* dourado */
+  --zig-amber: #f59e0b;     /* âmbar */
+  --zig-orange: #f97316;    /* laranja */
+  --zig-warn: #b45309;      /* âmbar mais escuro */
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* Dark */
+.dark {
+  color-scheme: dark;
+
+  --zig-bg: #071429;        /* azul bem escuro */
+  --zig-surface: #0b2346;   /* azul escuro */
+  --zig-card: #0f2b55;      /* azul mais claro nos cards */
+  --zig-text: #e6edf6;      /* branco “sujo” */
+  --zig-muted: #94a3b8;     /* cinza/azulado */
+  --zig-border: #1d3557;    /* borda */
+
+  --zig-gold: #d4af37;
+  --zig-amber: #fbbf24;
+  --zig-orange: #fb923c;
+  --zig-warn: #f59e0b;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer base {
+  html {
+    font-family: var(--font-roboto), system-ui, sans-serif;
   }
-}
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  body {
+    background: var(--zig-bg);
+    color: var(--zig-text);
+    min-height: 100vh;
+  }
 }
