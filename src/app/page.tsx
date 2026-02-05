@@ -1,7 +1,11 @@
 "use client"; 
+import dynamic from "next/dynamic";
+import Card from "@mui/material/Card";
+import CardContent from "@mui/material/CardContent";
+import Typography from "@mui/material/Typography";
+import Button from "@mui/material/Button";
 
-import { Card, CardContent, Typography, Button } from "@mui/material";
-import ThemeToggle from "@/theme/ThemeToggle";
+const ThemeToggle = dynamic(() => import("@/theme/ThemeToggle"), { ssr: false });
 
 export default function HomePage() {
   return (
